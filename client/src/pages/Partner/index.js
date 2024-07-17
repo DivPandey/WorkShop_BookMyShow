@@ -10,7 +10,7 @@ const Partner = () => {
     //     console.log(key);
     //   };
     const checkUser = async () =>{
-      const user = await axios.get("/api/users/get-current-user",{
+      const user = await axios.get("http://localhost:9000/api/users/get-current-user",{
           headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
           }

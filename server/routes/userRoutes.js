@@ -17,6 +17,7 @@ router.post("/register", async (req, res) => {
   try {
     const userExists = await User.findOne({ email: req.body.email });
     if (userExists) {
+      console.log("user exists")
       res.send({
         success: false,
         message: "The user already exists!",
@@ -31,7 +32,7 @@ router.post("/register", async (req, res) => {
 
     const newUser = await User(req.body);
     await newUser.save();
-    // console.log(newUser);
+    console.log(newUser);
     res.send({
       success: true,
       message: "You've successfully signed up, please login now!",
@@ -44,7 +45,7 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
-
+    console.log(user);
     if (!user) {
       res.send({
         success: false,
@@ -74,6 +75,7 @@ router.post("/login", async (req, res) => {
       token: token,
     });
   } catch (error) {
+    console.log(error);
     console.error(error);
   }
 });

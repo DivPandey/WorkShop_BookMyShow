@@ -20,7 +20,7 @@ function Login() {
         message.success(response.message);
         localStorage.setItem('token', response.token);
         
-        const response2 = await axios.get("/api/users/get-current-user", {
+        const response2 = await axios.get("http://localhost:9000/api/users/get-current-user", {
           headers: {
               Authorization: `Bearer ${response.token}`,
           },

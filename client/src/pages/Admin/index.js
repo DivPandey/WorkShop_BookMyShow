@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+// import React, { Children } from 'react'
 import React, {Children, useEffect} from 'react'
 import {message, Tabs} from 'antd'
 import MovieList from './MovieList'
@@ -9,7 +9,7 @@ import axios from "axios";
 function Admin() {
   const navigate = useNavigate();
     const checkUser = async () => {
-        const user = await axios.get("/api/users/get-current-user", {
+        const user = await axios.get("http://localhost:9000/api/users/get-current-user", {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

@@ -15,7 +15,7 @@ const Home = () => {
 
   const getData = async () => {
     try {
-      const user = await axios.get("/api/users/get-current-user",{
+      const user = await axios.get("http://localhost:9000/api/users/get-current-user",{
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
